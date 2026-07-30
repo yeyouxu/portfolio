@@ -63,7 +63,7 @@ def get_token():
 
 TOKEN = get_token()
 LOCAL_HEAD = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip()
-REMOTE_MAIN = "4610d1a9d2dc78aa6222310d013f5d9f5d059388"  # 新仓库起点
+REMOTE_MAIN = "90120dfa11aa491b3fcf370225b2a585d756705c"  # 推送起点（远程现状）
 
 
 def api(method, path, payload=None, use_proxy=False, retries=5):
