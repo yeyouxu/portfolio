@@ -464,7 +464,8 @@ def emit_works_data():
             s += 'sub: "%s", ' % sub
         if group:
             s += 'group: "%s", ' % group
-        s += 'src: "%s/%s", title: "%s", desc: "%s" },' % (P, src, title, desc)
+        s += 'src: "%s/%s", thumb: "%s/%s", title: "%s", desc: "%s" },' % (
+            P, src, P.replace("/gallery", "/thumbs"), src, title, desc)
         lines.append(s)
 
     def num(i):

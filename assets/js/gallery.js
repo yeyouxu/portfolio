@@ -39,7 +39,7 @@
     card.setAttribute("data-cat", w.cat);
 
     var media = document.createElement("img");
-    media.src = w.src;
+    media.src = w.thumb || w.src;   /* 卡片用缩略图，灯箱仍加载原图 */
     media.alt = w.title;
     media.loading = "lazy";
     media.decoding = "async";
