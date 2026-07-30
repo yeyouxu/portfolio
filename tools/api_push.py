@@ -12,7 +12,7 @@ import time
 import urllib.request
 import urllib.error
 
-REPO = "yeyouxu/portfolio"
+REPO = "yeyouxu/-"
 BASE = "https://api.github.com"
 ROOT = r"E:\3 workbuddy\portfolio"
 PROXY = "http://127.0.0.1:8443"   # 本地中转（github.com 走可用 IP）
@@ -63,7 +63,7 @@ def get_token():
 
 TOKEN = get_token()
 LOCAL_HEAD = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip()
-REMOTE_MAIN = "393b6041f2809dce6af36ed75058c8572fa81332"  # 新仓库起点
+REMOTE_MAIN = "49f1b2b923b58023993a1370f1004437a6eef48d"  # 推送起点（远程现状）
 
 
 def api(method, path, payload=None, use_proxy=False, retries=5):
@@ -131,8 +131,6 @@ def main():
     big = []
     todo = []
     for p in modified:
-        if p == "tools/.push_progress":
-            continue               # 进度记录文件本身不上传
         fp = os.path.join(ROOT, p.replace("/", os.sep))
         if os.path.getsize(fp) > 15 * 1024 * 1024:
             big.append(p)          # >15MB：API 单请求传不动，留给 git push 单独推
@@ -157,35 +155,25 @@ def main():
             f.write(p + "\n")
         if (len(tree_items)) % 20 == 0:
             print("  blob 进度 %d/%d" % (len(tree_items), len(todo)), flush=True)
-    # 已传过的文件：二进制直接用本地 blob sha（字节一致）；
-    # 文本文件可能因换行符/脚本自身变动导致 sha 不符，重新 POST（幂等，秒回）
-    text_ext = (".html", ".css", ".js", ".py", ".md", ".txt", ".json", ".xml")
+    # 已传过的文件：本地算 git blob sha（与 GitHub 算法一致），直接进 tree
     for p in modified:
         if p in done:
-            if p.lower().endswith(text_ext):
-                sha = blob_sha(p)
-            else:
-                sha = subprocess.check_output(
-                    ["git", "-c", "core.quotepath=false", "rev-parse", "HEAD:" + p],
-                    cwd=ROOT).decode().strip()
+            sha = subprocess.check_output(
+                ["git", "-c", "core.quotepath=false", "rev-parse", "HEAD:" + p],
+                cwd=ROOT).decode().strip()
             tree_items.append({"path": p, "mode": "100644", "type": "blob", "sha": sha})
     for p in deleted:
         tree_items.append({"path": p, "mode": "100644", "type": "blob", "sha": None})
 
-    # 基 tree = 远程 commit 的 tree；分块增量建树（单次请求太大会 422）
+    # 基 tree = 远程 commit 的 tree
     base_commit = api("GET", "/repos/%s/git/commits/%s" % (REPO, REMOTE_MAIN))
-    tree_sha = base_commit["tree"]["sha"]
-    CHUNK = 40
-    for i in range(0, len(tree_items), CHUNK):
-        chunk = tree_items[i:i + CHUNK]
-        tree = api("POST", "/repos/%s/git/trees" % REPO,
-                   {"base_tree": tree_sha, "tree": chunk})
-        tree_sha = tree["sha"]
-        print("tree 分块 %d/%d 完成" % (i // CHUNK + 1, (len(tree_items) + CHUNK - 1) // CHUNK), flush=True)
+    tree = api("POST", "/repos/%s/git/trees" % REPO,
+               {"base_tree": base_commit["tree"]["sha"], "tree": tree_items})
+    print("tree 创建完成", flush=True)
 
     commit = api("POST", "/repos/%s/git/commits" % REPO,
-                 {"message": "上线：全部照片与页面（经 API 逐文件上传）",
-                  "tree": tree_sha, "parents": [REMOTE_MAIN]})
+                 {"message": "上线：大改版全部内容（经 API 逐文件上传）",
+                  "tree": tree["sha"], "parents": [REMOTE_MAIN]})
     print("commit 创建完成: " + commit["sha"][:8], flush=True)
 
     api("PATCH", "/repos/%s/git/refs/heads/main" % REPO,
