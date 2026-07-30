@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系 — 野有叙</title>
+  <meta name="description" content="写信给我，或在留言板留下足迹。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23121d17'/%3E%3Ccircle cx='16' cy='12' r='2.4' fill='%23c8a96b'/%3E%3Ccircle cx='10' cy='20' r='1.4' fill='%23e6e2d4'/%3E%3Ccircle cx='22' cy='19' r='1.7' fill='%23e6e2d4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">野有叙<span class="gold-dot">✦</span></a>
+    <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="works.html">作品</a>
+      <a href="about.html">关于我</a>
+      <a href="contact.html" class="active">联系</a>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <p class="ph-kicker reveal">CONTACT</p>
+    <h1 class="reveal" data-delay="1">联&nbsp;系</h1>
+    <p class="ph-sub reveal" data-delay="2">写信给我，或留下足迹</p>
+  </header>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="contact-grid">
+
+      <!-- 联系方式 -->
+      <div class="contact-info">
+        <div class="reveal">
+          <div class="contact-line"><b>商务邮箱</b><a href="mailto:yeyouxu2026@163.com">yeyouxu2026@163.com</a></div>
+        </div>
+      </div>
+
+      <!-- 留言板 -->
+      <div class="guestbook reveal" data-delay="1">
+        <h3>留 言 板</h3>
+        <p class="gb-tip">写点什么吧。留言保存在你自己的浏览器里（共享留言板的接法见 README）。</p>
+        <form class="gb-form" id="gbForm">
+          <input type="text" name="name" placeholder="署名（可不填，默认为「路过的风」）" maxlength="20">
+          <textarea name="msg" placeholder="想说什么……" maxlength="300" required></textarea>
+          <div class="gb-visibility">
+            <label><input type="radio" name="vis" value="public" checked><span>公开 · 所有访客可见</span></label>
+            <label><input type="radio" name="vis" value="private"><span>不公开 · 只有网站主人可见</span></label>
+          </div>
+          <button type="submit" class="gb-submit">留 下</button>
+        </form>
+        <div class="gb-list" id="gbList"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="f-logo">野有叙</p>
+    <div class="f-links">
+      <a href="index.html">首页</a>
+      <a href="works.html">作品</a>
+      <a href="about.html">关于我</a>
+    </div>
+    <p class="f-copy">© <span id="year">2026</span> 野有叙 — 慢慢拍，慢慢走</p>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/guestbook.js" defer></script>
+</body>
+</html>

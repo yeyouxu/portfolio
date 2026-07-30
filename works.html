@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品 — 野有叙</title>
+  <meta name="description" content="摄影与 AI 影像作品：田野、雾气、星光，以及一些 AI 做的梦。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23121d17'/%3E%3Ccircle cx='16' cy='12' r='2.4' fill='%23c8a96b'/%3E%3Ccircle cx='10' cy='20' r='1.4' fill='%23e6e2d4'/%3E%3Ccircle cx='22' cy='19' r='1.7' fill='%23e6e2d4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">野有叙<span class="gold-dot">✦</span></a>
+    <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="works.html" class="active">作品</a>
+      <a href="about.html">关于我</a>
+      <a href="contact.html">联系</a>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <p class="ph-kicker reveal">SELECTED WORKS</p>
+    <h1 class="reveal" data-delay="1">作&nbsp;品</h1>
+    <p class="ph-sub reveal" data-delay="2">摄影是现实，AI是梦</p>
+  </header>
+
+  <section class="section works-section" style="padding-top: 56px;">
+    <!-- 一级筛选：摄影 / 摄影+AI融合视频 -->
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="filter-btn active" data-filter="photo">摄 影</button>
+      <button class="filter-btn" data-filter="video">摄影+AI融合视频</button>
+    </div>
+
+    <!-- 二级筛选：摄影子栏目 -->
+    <div class="sub-filter-bar show" id="subFilterBar">
+      <button class="filter-btn active" data-filter="featured">精 选</button>
+      <button class="filter-btn" data-filter="portrait">人 像</button>
+      <button class="filter-btn" data-filter="landscape">风 景</button>
+      <button class="filter-btn" data-filter="humanity">人 文</button>
+      <button class="filter-btn" data-filter="stilllife">静 物</button>
+      <button class="filter-btn" data-filter="meow">喵星人</button>
+      <button class="filter-btn" data-filter="all">全 部</button>
+    </div>
+
+    <!-- 作品区：左侧目录 + 内容（JS 渲染，图片懒加载） -->
+    <div class="works-layout">
+      <aside class="toc" id="tocNav" aria-label="作品目录"></aside>
+      <div class="works-main" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="f-logo">野有叙</p>
+    <div class="f-links">
+      <a href="index.html">首页</a>
+      <a href="about.html">关于我</a>
+      <a href="contact.html">联系</a>
+    </div>
+    <p class="f-copy">© <span id="year">2026</span> 野有叙 — 慢慢拍，慢慢走</p>
+  </footer>
+
+  <script src="assets/js/works-data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/gallery.js" defer></script>
+</body>
+</html>
