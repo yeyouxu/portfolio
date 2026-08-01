@@ -135,10 +135,10 @@ window.WORKS = [
   { type: "photo", cat: "landscape", series: "窗", src: "assets/img/gallery/landscape/chuang/chuang-04.jpg", thumb: "assets/img/thumbs/landscape/chuang/chuang-04.jpg", title: "窗 · 四", desc: "" },
   { type: "photo", cat: "landscape", series: "窗", src: "assets/img/gallery/landscape/chuang/chuang-05.jpg", thumb: "assets/img/thumbs/landscape/chuang/chuang-05.jpg", title: "窗 · 五", desc: "" },
  /* ===== 风景 · 中山植物园 · 枫 ===== */
- { type: "photo", cat: "landscape", series: "中山植物园", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 1.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/1.jpg", title: "中山植物园 · 一", desc: "" },
-  { type: "photo", cat: "landscape", series: "中山植物园", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 2.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/2.jpg", title: "中山植物园 · 二", desc: "" },
-  { type: "photo", cat: "landscape", series: "中山植物园", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 3.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/3.jpg", title: "中山植物园 · 三", desc: "" },
-  { type: "photo", cat: "landscape", series: "中山植物园", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 4.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/4.jpg", title: "中山植物园 · 四", desc: "" },
+ { type: "photo", cat: "landscape", series: "中山植物园 · 枫", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 1.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/1.jpg", title: "中山植物园 · 一", desc: "" },
+  { type: "photo", cat: "landscape", series: "中山植物园 · 枫", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 2.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/2.jpg", title: "中山植物园 · 二", desc: "" },
+  { type: "photo", cat: "landscape", series: "中山植物园 · 枫", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 3.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/3.jpg", title: "中山植物园 · 三", desc: "" },
+  { type: "photo", cat: "landscape", series: "中山植物园 · 枫", src: "assets/img/gallery/landscape/zhongshanzhiwuyuan/zhongshan 4.jpg", thumb: "assets/img/thumbs/landscape/zhongshanzhiwuyuan/4.jpg", title: "中山植物园 · 四", desc: "" },
 /* ===== 风景 · 山湖边 ===== */
   { type: "photo", cat: "landscape", series: "山湖边", src: "assets/img/gallery/landscape/shanhubian/shanhubian-01.jpg", thumb: "assets/img/thumbs/landscape/shanhubian/shanhubian-01.jpg", title: "山湖边 · 一", desc: "" },
   { type: "photo", cat: "landscape", series: "山湖边", src: "assets/img/gallery/landscape/shanhubian/shanhubian-02.jpg", thumb: "assets/img/thumbs/landscape/shanhubian/shanhubian-02.jpg", title: "山湖边 · 二", desc: "" },
@@ -259,7 +259,7 @@ window.SERIES = {
     { key: "揉碎蓝色" },
     { key: "栖霞山 · 秋冬" },
     { key: "窗" },
-    { key: "中山植物园 · 枫" }
+    { key: "中山植物园 · 枫" },
     { key: "山湖边" },
     { key: "无想水镇 · 旧时唐风" },
     { key: "鼋头渚 · 樱" },
